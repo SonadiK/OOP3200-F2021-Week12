@@ -2,9 +2,9 @@ package ca.durhamcollege;
 
 import java.util.ArrayList;
 
-public abstract class Shape
+public abstract class Shape implements Drawable, Updatable, HasArea
 {
-    // private instance variables
+    // private instance variables (composition)
     private ArrayList<Vector2D> vertices;
     private ArrayList<Line> edges;
 
@@ -20,6 +20,12 @@ public abstract class Shape
         build(vertices);
 //        vertices.clear();
 //        vertices.add(vertex);
+    }
+
+    // private/ protected properties
+    protected ArrayList<Vector2D> getVertices()
+    {
+        return vertices;
     }
 
     // constructors
@@ -97,5 +103,7 @@ public abstract class Shape
         }
         return output_string;
     }
+
+    //public abstract void Draw();
 
 }

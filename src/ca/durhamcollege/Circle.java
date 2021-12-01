@@ -40,6 +40,7 @@ public class Circle extends Shape
         return (float)(Math.PI * radius * 2);
     }
 
+    @Override
     public float getArea()
     {
         return (float) (Math.PI * Math.pow(radius, 2));
@@ -59,6 +60,8 @@ public class Circle extends Shape
     {
         String output_string = "";
         output_string += "-----------------------------------------------------\n";
+        output_string += "Circle\n";
+        output_string += "-----------------------------------------------------\n";
         output_string += "Center        : " + getCenter() + " \n";
         output_string += "Radius        : " + getRadius() + " \n";
         output_string += "Area          : " + getArea() + " \n";
@@ -68,5 +71,15 @@ public class Circle extends Shape
         return output_string;
     }
 
+    @Override
+    public void Draw()
+    {
+        System.out.println("Now drawing circle.");
+    }
 
+    @Override
+    public void Update()
+    {
+
+    }
 }

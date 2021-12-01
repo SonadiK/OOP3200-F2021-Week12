@@ -2,6 +2,20 @@ package ca.durhamcollege;
 
 public class Triangle extends Shape
 {
+    // public properties
+    @Override
+    public float getArea()
+    {
+        var A = getVertices().get(0);
+        System.out.println("Debug: " + A);
+        var B = getVertices().get(1);
+        var C = getVertices().get(2);
+        var firstTerm = A.getX() * (B.getY() - C.getY());
+        var secondTerm = B.getX() * (C.getY() - A.getY());
+        var thirdTerm = C.getX() * (A.getY() - B.getY());
+
+        return Math.abs((firstTerm + secondTerm + thirdTerm)/2);
+    }
 //    /**
 //     * The empty constructor for the Triangle class created a shape with a single vertex and single edge.
 //     */
@@ -41,6 +55,7 @@ public class Triangle extends Shape
 
     //private Vector2D[] points; //overshadow all vertices in shape class
 
+    // public methods
     /**
      * sets the values of the vertices of the triangle.
      * if values for these points already exists they are overridden.
@@ -48,7 +63,6 @@ public class Triangle extends Shape
      * @param p2 the second point
      * @param p3 the third point
      */
-    // properties
     public void setVertices(Vector2D p1, Vector2D p2, Vector2D p3) throws Exception {
         // initializing an array
         Vector2D[] vertices = {p1, p2, p3};
@@ -63,4 +77,43 @@ public class Triangle extends Shape
             super.setVertices(vertices);
         }
     }
+
+    // public methods
+    @Override
+    public String toString()
+    {
+        String output_string = "";
+        output_string += "-----------------------------------------------------\n";
+        output_string += "Triangle\n";
+        output_string += super.toString();
+        output_string += "-----------------------------------------------------\n";
+        output_string += "Area             : " + getArea() + " \n";
+        output_string += "-----------------------------------------------------\n";
+        return output_string;
+    }
+
+    @Override
+    public void Draw()
+    {
+        System.out.println("Now drawing triangle.");
+    }
+
+    @Override
+    public void Update()
+    {
+
+    }
+
+//    @Override
+//    public float getArea()
+//    {
+//        Vector2D A = getVertices().get(0);
+//        Vector2D B = getVertices().get(1);
+//        Vector2D C = getVertices().get(2);
+//        var firstTerm = A.getX() * (B.getY() - C.getY();
+//        var secondTerm = B.getX() * (C.getY() - A.getY());
+//        var thirdTerm = C.getX() * (A.getY() - B.getY());
+//
+//        return (firstTerm + secondTerm + thirdTerm)/2;
+//    }
 }
